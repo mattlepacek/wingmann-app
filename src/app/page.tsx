@@ -80,21 +80,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── Deployed Hero Image Section ── */}
-      <div className="relative h-[70vh] sm:h-[80vh] overflow-hidden">
-        {/* Dark gradient overlays for blending */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black via-transparent to-black" />
-        <div className="absolute inset-0 z-10 bg-black/40" />
-
-        <Image
-          src="/deployed-hero.png"
-          alt="WingMann deployed at trade show"
-          fill
-          className="object-cover object-top"
-        />
-
-      </div>
-
       {/* ── What Is WingMann ── */}
       <section className="relative bg-black py-24 sm:py-32">
         <div className="mx-auto max-w-6xl px-6">
@@ -261,6 +246,18 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* ── Deployed Hero Image ── */}
+      <div className="relative h-[50vh] sm:h-[70vh] overflow-hidden">
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black via-transparent to-black" />
+        <div className="absolute inset-0 z-10 bg-black/40" />
+        <Image
+          src="/deployed-hero.png"
+          alt="WingMann deployed at trade show"
+          fill
+          className="object-cover object-top"
+        />
+      </div>
 
       {/* ── Footer ── */}
       <Footer />
