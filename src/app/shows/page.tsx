@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 type BoothType = "dedicated" | "partner" | "roaming";
 
@@ -74,16 +76,11 @@ export default function ShowsPage() {
 
   return (
     <div className="relative min-h-screen bg-black">
-      <nav className="fixed top-0 z-50 w-full border-b border-zinc-900 bg-black/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <Link href="/"><Image src="/logo.webp" alt="WingMann" width={763} height={78} className="h-6 w-auto select-none" draggable={false} /></Link>
-          <div className="flex items-center gap-6">
-            <Link href="/operator" className="text-xs tracking-widest uppercase text-zinc-500 transition hover:text-[#4db8ff]">Operator</Link>
-            <Link href="/partners" className="text-xs tracking-widest uppercase text-zinc-500 transition hover:text-[#4db8ff]">Partners</Link>
-            <Link href="/book" className="text-xs tracking-widest uppercase text-white bg-[#1a8fff]/15 px-4 py-2 transition hover:bg-[#1a8fff]/25">Book</Link>
-          </div>
-        </div>
-      </nav>
+      <Nav links={[
+        { href: "/operator", label: "Operator" },
+        { href: "/partners", label: "Partners" },
+        { href: "/book", label: "Book", highlight: true },
+      ]} />
 
       <main className="mx-auto max-w-6xl px-6 pt-32 pb-24">
         <div className="mb-12">
@@ -225,13 +222,7 @@ export default function ShowsPage() {
         )}
       </main>
 
-      <footer className="border-t border-zinc-900 py-8">
-        <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
-          <p className="text-[10px] tracking-[0.25em] uppercase text-zinc-700">WingMann Network</p>
-          <Image src="/w-logo.png" alt="W" width={200} height={200} className="w-32 h-auto opacity-30" />
-          <p className="text-[10px] tracking-[0.25em] uppercase text-zinc-700">Never Enter Alone</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const stats = [
   { label: "Events Deployed", value: "47" },
@@ -20,41 +22,11 @@ const specialties = [
 export default function OperatorProfile() {
   return (
     <div className="relative min-h-screen bg-black">
-      {/* Nav */}
-      <nav className="fixed top-0 z-50 w-full border-b border-zinc-900 bg-black/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <Link href="/">
-            <Image
-              src="/logo.webp"
-              alt="WingMann"
-              width={763}
-              height={78}
-              className="h-6 w-auto select-none"
-              draggable={false}
-            />
-          </Link>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/shows"
-              className="text-xs tracking-widest uppercase text-zinc-500 transition hover:text-[#4db8ff]"
-            >
-              Shows
-            </Link>
-            <Link
-              href="/partners"
-              className="text-xs tracking-widest uppercase text-zinc-500 transition hover:text-[#4db8ff]"
-            >
-              Partners
-            </Link>
-            <Link
-              href="/book"
-              className="text-xs tracking-widest uppercase text-white bg-[#1a8fff]/15 px-4 py-2 transition hover:bg-[#1a8fff]/25"
-            >
-              Book
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Nav links={[
+        { href: "/shows", label: "Shows" },
+        { href: "/partners", label: "Partners" },
+        { href: "/book", label: "Book", highlight: true },
+      ]} />
 
       <main className="mx-auto max-w-6xl px-6 pt-32 pb-24">
         {/* Profile Header */}
@@ -141,32 +113,22 @@ export default function OperatorProfile() {
           <h2 className="text-[10px] tracking-[0.35em] uppercase text-zinc-500 mb-8">
             How Deployment Works
           </h2>
-          <div className="grid sm:grid-cols-3 gap-8">
-            {[
-              {
-                step: "01",
-                title: "Book",
-                desc: "Select your event type, date, and deployment mode. Flat rate or performance-based.",
-              },
-              {
-                step: "02",
-                title: "Deploy",
-                desc: "Your WingMann arrives, reads the room, and initiates strategic conversations on your behalf.",
-              },
-              {
-                step: "03",
-                title: "Connect",
-                desc: "Introductions are logged, attributed, and tracked. Deals close, pipeline grows.",
-              },
-            ].map((item) => (
-              <div key={item.step} className="group">
-                <p className="text-xs text-zinc-700 font-mono mb-3">{item.step}</p>
-                <h3 className="text-sm uppercase tracking-wider text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-zinc-500 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
+          <div className="grid sm:grid-cols-3 gap-px bg-zinc-800 border border-zinc-800">
+            <div className="bg-black p-6 sm:p-8">
+              <div className="w-6 h-px bg-zinc-600 mb-5" />
+              <h3 className="text-sm uppercase tracking-wider text-white mb-2">Book</h3>
+              <p className="text-xs text-zinc-500 leading-relaxed">Select your event type, date, and deployment mode. Flat rate or performance-based.</p>
+            </div>
+            <div className="bg-black p-6 sm:p-8">
+              <div className="w-6 h-px bg-zinc-600 mb-5" />
+              <h3 className="text-sm uppercase tracking-wider text-white mb-2">Deploy</h3>
+              <p className="text-xs text-zinc-500 leading-relaxed">Your WingMann arrives, reads the room, and initiates strategic conversations on your behalf.</p>
+            </div>
+            <div className="bg-black p-6 sm:p-8">
+              <div className="w-6 h-px bg-zinc-600 mb-5" />
+              <h3 className="text-sm uppercase tracking-wider text-white mb-2">Connect</h3>
+              <p className="text-xs text-zinc-500 leading-relaxed">Introductions are logged, attributed, and tracked. Deals close, pipeline grows.</p>
+            </div>
           </div>
         </div>
 
@@ -207,18 +169,7 @@ export default function OperatorProfile() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-zinc-900 py-8">
-        <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
-          <p className="text-[10px] tracking-[0.25em] uppercase text-zinc-700">
-            WingMann Network
-          </p>
-          <Image src="/w-logo.png" alt="W" width={200} height={200} className="w-32 h-auto opacity-30" />
-          <p className="text-[10px] tracking-[0.25em] uppercase text-zinc-700">
-            Never Enter Alone
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
