@@ -76,26 +76,32 @@ export default function Nav({ links }: { links: NavLink[] }) {
         </button>
       </div>
 
-      {/* Mobile overlay */}
+      {/* Mobile menu */}
       <div
-        className={`sm:hidden fixed inset-0 top-16 bg-black/95 backdrop-blur-md transition-opacity duration-300 ${
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`sm:hidden fixed inset-x-0 top-16 bottom-0 bg-black border-t border-zinc-900 transition-all duration-300 ${
+          open ? "translate-y-0 opacity-100 pointer-events-auto" : "-translate-y-4 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col items-center gap-8 pt-16">
+        <div className="flex flex-col px-6 pt-8 gap-1">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={
                 link.highlight
-                  ? "text-sm tracking-[0.3em] uppercase text-white bg-[#1a8fff]/15 px-6 py-3 transition hover:bg-[#1a8fff]/25"
-                  : "text-sm tracking-[0.3em] uppercase text-zinc-400 transition hover:text-[#4db8ff]"
+                  ? "py-4 text-sm tracking-[0.25em] uppercase text-white border-b border-zinc-900"
+                  : "py-4 text-sm tracking-[0.25em] uppercase text-zinc-400 border-b border-zinc-900"
               }
             >
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/"
+            className="py-4 text-sm tracking-[0.25em] uppercase text-zinc-600"
+          >
+            Home
+          </Link>
         </div>
       </div>
     </nav>
