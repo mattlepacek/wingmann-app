@@ -99,6 +99,7 @@ export default function Home() {
           <p className="text-[10px] tracking-[0.25em] uppercase text-zinc-700">
             WingMann Network
           </p>
+          <Image src="/w-logo.png" alt="W" width={200} height={200} className="w-32 h-auto opacity-30" />
           <p className="text-[10px] tracking-[0.25em] uppercase text-zinc-700">
             Never Enter Alone
           </p>
