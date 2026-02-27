@@ -1,26 +1,158 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ededed;
+  --brand-blue: #1a8fff;
+  --brand-blue-deep: #0c2d4d;
+  --brand-blue-light: #4db8ff;
+  --brand-chrome: #c0c8d4;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand: var(--brand-blue);
+  --color-brand-deep: var(--brand-blue-deep);
+  --color-brand-light: var(--brand-blue-light);
+  --color-brand-chrome: var(--brand-chrome);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* ── Subtle grain texture overlay ── */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ── Splash / Intro animations ── */
+@keyframes splash-deep-zoom {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(8);
+    opacity: 0;
+  }
+}
+
+@keyframes splash-glow-pulse {
+  0% { transform: scale(0.5); opacity: 0; }
+  40% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.splash-zoom {
+  animation: splash-deep-zoom 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.splash-glow {
+  animation: splash-glow-pulse 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Chrome text shimmer animation ── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-slow {
+  background: linear-gradient(
+    110deg,
+    rgba(26, 143, 255, 0.03) 0%,
+    rgba(26, 143, 255, 0.12) 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(26, 143, 255, 0.03) 60%,
+    rgba(26, 143, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+}
+
+/* ── Fade in animation ── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fade-up 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+/* ── Subtle line with blue tint ── */
+.line-gradient {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(26, 143, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(26, 143, 255, 0.2) 70%,
+    transparent 100%
+  );
+}
+
+/* ── Blue glow utility ── */
+.glow-blue {
+  box-shadow: 0 0 60px rgba(26, 143, 255, 0.08), 0 0 120px rgba(26, 143, 255, 0.04);
+}
+
+/* ── Global input focus with brand blue ── */
+input:focus, textarea:focus, select:focus {
+  border-color: rgba(26, 143, 255, 0.4) !important;
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 143, 255, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 143, 255, 0.3);
 }

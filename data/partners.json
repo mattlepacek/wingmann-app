@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "name": "Founding Partner #1",
+    "category": "Telecom",
+    "status": "Active"
+  },
+  {
+    "id": "2",
+    "name": "Founding Partner #2",
+    "category": "SaaS",
+    "status": "Active"
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "id": "1",
+    "name": "SaaStr Annual 2026",
+    "dates": "Mar 10–12, 2026",
+    "location": "San Francisco, CA",
+    "venue": "Moscone Center",
+    "industry": "SaaS",
+    "boothType": "dedicated",
+    "status": "confirmed",
+    "description": "The largest SaaS community conference. WingMann Lounge deployed — dedicated booth with full concierge networking.",
+    "expectedAttendance": "15,000+"
+  },
+  {
+    "id": "2",
+    "name": "Channel Partners Conference",
+    "dates": "Mar 24–26, 2026",
+    "location": "Las Vegas, NV",
+    "venue": "The Venetian",
+    "industry": "Telecom / Channel",
+    "boothType": "partner",
+    "partnerBooth": "TeleCorp Solutions",
+    "status": "confirmed",
+    "description": "Embedded with TeleCorp Solutions booth. Extended conversations and strategic introductions for channel partners.",
+    "expectedAttendance": "8,000+"
+  },
+  {
+    "id": "3",
+    "name": "IRCE – Internet Retailer",
+    "dates": "Apr 7–9, 2026",
+    "location": "Chicago, IL",
+    "venue": "McCormick Place",
+    "industry": "Ecommerce",
+    "boothType": "roaming",
+    "status": "confirmed",
+    "description": "Roaming deployment — no fixed booth. WingMann works the floor, making introductions between ecommerce operators.",
+    "expectedAttendance": "10,000+"
+  },
+  {
+    "id": "4",
+    "name": "Collision 2026",
+    "dates": "Jun 22–25, 2026",
+    "location": "Toronto, ON",
+    "venue": "Enercare Centre",
+    "industry": "Tech / Startup",
+    "boothType": "dedicated",
+    "status": "pending",
+    "description": "WingMann Lounge pending confirmation. Startup and growth-stage company networking hub.",
+    "expectedAttendance": "40,000+"
+  },
+  {
+    "id": "5",
+    "name": "GITEX Global 2026",
+    "dates": "Oct 13–17, 2026",
+    "location": "Dubai, UAE",
+    "venue": "DWTC",
+    "industry": "Tech / Enterprise",
+    "boothType": "partner",
+    "partnerBooth": "Nexgen SaaS",
+    "status": "pending",
+    "description": "Embedded deployment with Nexgen SaaS. Enterprise deal acceleration in the MENA region.",
+    "expectedAttendance": "180,000+"
+  }
+]
